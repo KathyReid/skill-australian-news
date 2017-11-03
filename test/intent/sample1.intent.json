@@ -1,0 +1,7 @@
+{
+  "utterance": "australian news",
+  "intent_type": "AustralianNewsIntent",
+  "intent": {
+    "AustralianNewsKeyword": "news"
+  }
+}

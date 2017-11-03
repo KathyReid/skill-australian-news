@@ -1,0 +1,8 @@
+{
+  "utterance": "stop the news",
+  "intent_type": "AustralianNewsStopIntent",
+  "intent": {
+    "AustralianNewsKeyword": "news",
+    "AustralianNewsStopVerb": "stop"
+  }
+}

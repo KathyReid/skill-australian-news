@@ -60,7 +60,7 @@ class AustralianNewsSkill(MycroftSkill):
             data = feedparser.parse(self.url_rss)
             self.stop()
 
-            self.speak_dialog('a.b.c.news')
+            self.speak_dialog('abc.news')
 
             # Pause for the intro, then start the new stream
             time.sleep(4)
@@ -82,7 +82,7 @@ class AustralianNewsSkill(MycroftSkill):
         if self.process and self.process.poll() is None:
             self.process.terminate()
             self.process.wait()
-            self.speak_dialog('australiannews.news.stop')
+            self.speak_dialog('abc.news.stop')
 
 
 def create_skill():

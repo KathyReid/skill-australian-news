@@ -16,7 +16,7 @@
 # along with Mycroft Core.  If not, see <http://www.gnu.org/licenses/>.
 
 
-import feedparser
+#import feedparser
 import time
 from os.path import dirname
 import re
@@ -38,7 +38,7 @@ LOGGER = getLogger(__name__)
 class AustralianNewsSkill(MycroftSkill):
     def __init__(self):
         super(AustralianNewsSkill, self).__init__(name="AustralianNewsSkill")
-        self.url = 'http://radio.abc.net.au/stations/news/live?play=true'
+        self.url = "http://radio.abc.net.au/stations/news/live?play=true"
         #self.url_rss = self.config['url_rss']
         self.process = None
         self.audioservice = None

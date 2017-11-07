@@ -38,7 +38,8 @@ LOGGER = getLogger(__name__)
 class AustralianNewsSkill(MycroftSkill):
     def __init__(self):
         super(AustralianNewsSkill, self).__init__(name="AustralianNewsSkill")
-        self.url_rss = self.config['url_rss']
+        self.url = 'http://radio.abc.net.au/stations/news/live?play=true'
+        #self.url_rss = self.config['url_rss']
         self.process = None
         self.audioservice = None
 
@@ -57,20 +58,20 @@ class AustralianNewsSkill(MycroftSkill):
 
     def handle_intent(self, message):
         try:
-            data = feedparser.parse(self.url_rss)
+            #data = feedparser.parse(self.url_rss)
             self.stop()
 
             self.speak_dialog('abc.news')
 
             # Pause for the intro, then start the new stream
-            time.sleep(4)
-            url = re.sub('https', 'http',
-                         data['entries'][0]['links'][0]['href'])
+            time.sleep(6)
+            #url = re.sub('https', 'http',
+                         #data['entries'][0]['links'][0]['href'])
             # if audio service module is available use it
             if self.audioservice:
-                self.audioservice.play(url, message.data['utterance'])
+                self.audioservice.play(self.url, message.data['utterance'])
             else: # othervice use normal mp3 playback
-                self.process = play_mp3(url)
+                self.process = play_mp3(self.url)
 
         except Exception as e:
             LOGGER.error("Error: {0}".format(e))

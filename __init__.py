@@ -64,7 +64,7 @@ class AustralianNewsSkill(MycroftSkill):
             self.speak_dialog('abc.news')
 
             # Pause for the intro, then start the new stream
-            time.sleep(6)
+            time.sleep(3)
             #url = re.sub('https', 'http',
                          #data['entries'][0]['links'][0]['href'])
             # if audio service module is available use it

@@ -36,7 +36,8 @@ LOGGER = getLogger(__name__)
 class AustralianNewsSkill(MycroftSkill):
     def __init__(self):
         super(AustralianNewsSkill, self).__init__(name="AustralianNewsSkill")
-        self.url = "http://live-radio02.mediahubaustralia.com/PBW/mp3/"        self.process = None
+        self.url = "http://live-radio02.mediahubaustralia.com/PBW/mp3/"
+        self.process = None
         self.audioservice = None
 
     def initialize(self):
@@ -45,8 +46,8 @@ class AustralianNewsSkill(MycroftSkill):
         self.register_intent(intent, self.handle_intent)
 
         intent = IntentBuilder("AustralianNewsStopIntent") \
-                .require("AustralianNewsStopVerb") \
-                .require("AustralianNewsKeyword").build()
+            .require("AustralianNewsStopVerb") \
+            .require("AustralianNewsKeyword").build()
         self.register_intent(intent, self.handle_stop)
 
         if AudioService:
@@ -55,13 +56,12 @@ class AustralianNewsSkill(MycroftSkill):
     def handle_intent(self, message):
         try:
             self.stop()
-
             self.speak_dialog('abc.news')
 
             # Pause for the intro, then start the new stream
             time.sleep(3)
             # url = re.sub('https', 'http',
-                         #data['entries'][0]['links'][0]['href'])
+            # data['entries'][0]['links'][0]['href'])
             # if audio service module is available use it
             if self.audioservice:
                 self.audioservice.play(self.url, message.data['utterance'])

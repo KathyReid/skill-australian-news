@@ -2,6 +2,6 @@
   "utterance": "read the Australian news",
   "intent_type": "AustralianNewsIntent",
   "intent": {
-    "AustralianNewsKeyword": "read the Australian news"
+    "AustralianNewsKeyword": "aussienews"
   }
 }
